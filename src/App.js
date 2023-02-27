@@ -17,7 +17,7 @@ async function convert(e) {
     if (response.ok) {
       const json = await response.json();
       setRate(json.rates.GBP);
-      setGBp(eur * json.rates.GBP);
+      setGbp(eur * json.rates.GBP);
     } else {
       alert('Error retrieving exchange rate.')
     }

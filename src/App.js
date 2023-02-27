@@ -8,6 +8,24 @@ function App() {
   const [gbp,setGbp] = useState(0);
   const [rate,setRate] = useState(0);
 
+async function convert(e) {
+  e.preventDefault();
+  try{
+    const address = URL;
+    const response = await fetch(address);
+
+    if (response.ok) {
+      const json = await response.json();
+      setRate(json.rates.GBP);
+      setGBp(eur * json.rates.GBP);
+    } else {
+      alert('Error retrieving exchange rate.')
+    }
+  } catch (err) {
+    alert(err);
+  }
+}
+
   return (
     <div id="container">
       <form onSubmit={convert}>
